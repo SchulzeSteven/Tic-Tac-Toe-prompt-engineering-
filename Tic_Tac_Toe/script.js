@@ -17,6 +17,7 @@ const WINNING_COMBINATIONS = [
 ];
 
 let currentPlayer = 'circle'; // Start with 'circle', it will alternate between 'circle' and 'cross'
+let AUDIO_SUCCES = new Audio('audio/success.mp3');
 
 function init() {
     render();
@@ -107,7 +108,7 @@ function handleClick(cell, index) {
             drawWinningLine(winCombination);
         }
     }
-    renderPlayerInfo()
+    renderPlayerInfo();
 }
 
 
@@ -119,6 +120,7 @@ function getWinningCombination() {
     for (let i = 0; i < WINNING_COMBINATIONS.length; i++) {
         const [a, b, c] = WINNING_COMBINATIONS[i];  // [0, 1, 2]
         if (fields[a] === fields[b] && fields[b] === fields[c] && fields[a] !== null) {
+            AUDIO_SUCCES.play();
             return WINNING_COMBINATIONS[i];
         }
     }
