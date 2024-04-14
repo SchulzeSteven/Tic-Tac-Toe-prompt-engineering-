@@ -27,6 +27,14 @@ h3 {
     position: relative;
 }
 
+#player-name {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: 900;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -77,10 +85,16 @@ button {
     color: #fff;
     background-color: #00B0EF;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #96cadd;
+}
+
+.cl {
+    position: relative;
+    font-size: 20px;
+    top: 50px;
 }

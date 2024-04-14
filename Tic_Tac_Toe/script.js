@@ -20,6 +20,7 @@ let currentPlayer = 'circle'; // Start with 'circle', it will alternate between 
 
 function init() {
     render();
+    renderPlayerInfo()
 }
 
 function render() {
@@ -43,6 +44,25 @@ function render() {
     tableHtml += '</table>';
     // Set table HTML to contentDiv
     contentDiv.innerHTML = tableHtml;
+}
+
+
+function renderPlayerInfo() {
+    // Das Element 'player-info' wird über seine ID aus dem DOM ausgewählt
+    
+    const playerNameSpan = document.getElementById('player-name');
+
+    // Überprüfen, welcher Spieler gerade an der Reihe ist und den entsprechenden Spielernamen generieren
+    let playerName;
+    if (currentPlayer === 'circle') {
+        playerName = 'Kreis';
+    } else {
+        playerName = 'Kreuz';
+    }
+
+    // Generiere die Nachricht basierend auf dem aktuellen Spielerstatus und setze sie als Textinhalt des Elements und die Farbe
+    playerNameSpan.textContent = playerName;
+    playerNameSpan.style.color = 'red';
 }
 
 
@@ -87,6 +107,7 @@ function handleClick(cell, index) {
             drawWinningLine(winCombination);
         }
     }
+    renderPlayerInfo()
 }
 
 
